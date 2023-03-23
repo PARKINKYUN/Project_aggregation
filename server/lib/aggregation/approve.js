@@ -55,10 +55,6 @@ module.exports = {
     // 개인키를 서버 메모리에 저장하지 않고, 서명되지 않은 raw transaction 을 client 로 보내 서명을 받아 처리하는 경우
     // 1. 서명을 받을 원시 트랜잭션 데이터를 생성하여 client 로 보낸다.
     // 2. client 에서 사용자가 원시 트랜잭션에 서명한 후 서명된 트랜잭션을 서버로 보내면 서버에서 처리한다.
-
-    // ** 만약 1inch api 가 permit 을 지원한다면, approve 와 swap 모두 client로부터 permit 데이터를 받아와
-    // ** 1inch api를 통해 처리하도록 하는 방법이 있을 것입니다.(이 경우 사용자의 gas 비용이 절약된다는 장점이 있으나 permit 지원 여부는 확인이 안됩니다.)
-
     // 서명을 받을 approve 원시 트랜잭션 데이터 반환하는 함수
     getApproveTransaction: async (tokenAddress, amount, web3RpcUrl) => {
         return await buildTxForApproveTradeWithRouter(tokenAddress, amount, web3RpcUrl);
